@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4.9331264
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 780197176}
   - component: {fileID: 780197175}
   - component: {fileID: 780197178}
+  - component: {fileID: 780197179}
   m_Layer: 0
   m_Name: Wood
   m_TagString: Wood
@@ -320,6 +321,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -3
+  shakeAmt: 7
 --- !u!212 &780197176
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -401,6 +403,70 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.1183333
+--- !u!95 &780197179
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780197174}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05f11582ddaf7124d9ad298aa0266ce3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1155912892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1155912894}
+  - component: {fileID: 1155912893}
+  m_Layer: 0
+  m_Name: ObjectPooler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1155912893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155912892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012fd0f2f9cdfec44ab523ab0c0241e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1739889437902979977, guid: 53e6061c7fffda4448664daba3fcb881, type: 3}
+  parentObject: {fileID: 1155912892}
+--- !u!4 &1155912894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155912892}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2054998307
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +479,7 @@ GameObject:
   - component: {fileID: 2054998309}
   m_Layer: 0
   m_Name: KnifeSpawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -444,6 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fae1fbff428ac04a89d2a4c54793b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  throwCount: 0
   force: 25
   pause: 0.5
   knifePrefab: {fileID: 1739889437902979977, guid: 53e6061c7fffda4448664daba3fcb881, type: 3}

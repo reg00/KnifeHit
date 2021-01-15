@@ -19,7 +19,8 @@ public class Knife : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<Knife>().InWood)
             {
-                //Проигрыш
+                Destroy(gameObject);
+                GameObject.FindGameObjectWithTag("Spawner").GetComponent<Spawner>().Lose();
             }
         }
     }
