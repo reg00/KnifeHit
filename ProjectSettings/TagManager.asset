@@ -7,6 +7,10 @@ TagManager:
   - Wood
   - Knife
   - Spawner
+  - Apple
+  - Pool
+  - Game
+  - Menu
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
@@ -15,14 +14,8 @@ public class ObjectPooler : MonoBehaviour
 
     private void Awake()
     {
-        
         Instance = this;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        GenerateNewPool();
+        poolQueue = new Queue<GameObject>();
     }
 
     public GameObject SpawnFromPool(Vector3 position)
@@ -40,12 +33,16 @@ public class ObjectPooler : MonoBehaviour
 
     public void GenerateNewPool()
     {
+        poolQueue.Clear();
         count = Random.Range(6, 10);
-        poolQueue = new Queue<GameObject>();
 
         for (int i = 0; i < count; i++)
         {
             GameObject gameObj = Instantiate(prefab);
+
+            if(i == count - 1)
+                gameObj.GetComponent<Knife>().Last = true;
+
             gameObj.SetActive(false);
             gameObj.transform.parent = parentObject.transform;
             poolQueue.Enqueue(gameObj);
